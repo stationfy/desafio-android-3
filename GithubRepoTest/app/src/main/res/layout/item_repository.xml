@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/textViewRepositoryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:ellipsize="end"
+        android:layout_toStartOf="@+id/linearLayout"
+        android:textStyle="bold"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/textViewRepositoryDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewRepositoryName"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_marginRight="20dp"
+        android:layout_toStartOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/imageViewFork"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:srcCompat="@drawable/source_fork"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textViewRepositoryDescription"
+        android:layout_alignStart="@+id/textViewRepositoryDescription" />
+
+    <TextView
+        android:id="@+id/textViewForks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignTop="@+id/imageViewFork"
+        android:layout_toEndOf="@+id/imageViewFork"
+        android:layout_alignBottom="@+id/imageViewFork" />
+
+    <TextView
+        android:id="@+id/textViewStars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@+id/textViewForks"
+        android:layout_alignTop="@+id/imageViewStar"
+        android:layout_toEndOf="@+id/imageViewStar"
+        android:layout_alignBottom="@+id/imageViewStar" />
+
+    <ImageView
+        android:id="@+id/imageViewStar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:srcCompat="@drawable/star"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignTop="@+id/textViewForks"
+        android:layout_toEndOf="@+id/textViewForks" />
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/textViewStars">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageViewAvatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textViewOwnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+    </LinearLayout>
+
+</RelativeLayout>
