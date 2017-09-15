@@ -1,4 +1,4 @@
-package com.arena.githubrepotest.views.repos.core;
+package com.arena.githubrepotest.views.pullrequests.core;
 
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,9 +9,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.arena.githubrepotest.R;
+import com.arena.githubrepotest.models.PullRequest;
 import com.arena.githubrepotest.models.Repository;
-import com.arena.githubrepotest.views.repos.RepositoriesAdapter;
-import com.arena.githubrepotest.views.repos.RepositoriesListActivity;
+import com.arena.githubrepotest.views.pullrequests.PullRequestsActivity;
+import com.arena.githubrepotest.views.pullrequests.PullRequestsAdapter;
 
 import java.util.ArrayList;
 
@@ -19,26 +20,26 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Observable;
 
-public class RepositoriesView {
+public class PullRequestsView {
 
-    @BindView(R.id.listRepositories)
-    RecyclerView listRepositories;
+    @BindView(R.id.listPullRequests)
+    RecyclerView listPullRequests;
 
     View view;
-    RepositoriesAdapter adapter;
+    PullRequestsAdapter adapter;
 
-    public RepositoriesView(RepositoriesListActivity context ) {
+    public PullRequestsView(PullRequestsActivity context, Repository repository) {
         FrameLayout parent = new FrameLayout(context);
         parent.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        view = LayoutInflater.from(context).inflate(R.layout.activity_repository_list, parent, true);
+        view = LayoutInflater.from(context).inflate(R.layout.activity_pull_requests, parent, true);
         ButterKnife.bind(this, view);
 
-        adapter = new RepositoriesAdapter();
+        adapter = new PullRequestsAdapter();
 
-        listRepositories.setAdapter(adapter);
+        listPullRequests.setAdapter(adapter);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
-        listRepositories.setLayoutManager(mLayoutManager);
-        listRepositories.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
+        listPullRequests.setLayoutManager(mLayoutManager);
+        listPullRequests.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
     }
 
     public Observable<Integer> itemClicks()
@@ -50,9 +51,8 @@ public class RepositoriesView {
         return view;
     }
 
-    public void swapAdapter(ArrayList<Repository> repositories)
+    public void swapAdapter(ArrayList<PullRequest> pullRequests)
     {
-        adapter.swapAdapter(repositories);
+        adapter.swapAdapter(pullRequests);
     }
-
 }
