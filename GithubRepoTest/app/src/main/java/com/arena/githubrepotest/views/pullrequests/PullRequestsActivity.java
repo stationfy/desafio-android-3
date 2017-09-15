@@ -27,6 +27,7 @@ public class PullRequestsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Repository repository = (Repository) getIntent().getExtras().get("repository");
+        setTitle(repository.getFullName());
 
         DaggerPullRequestsComponent.builder()
                 .appComponent(AppController.getNetComponent())
